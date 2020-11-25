@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>ShinigamiStore</title>
+    <!--	<meta http-equiv="content-type" content="text/html; charset=utf-8">-->
+    <meta name="viewport" content="width=device-width, shrink-to-fit=no">
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@500;600&display=swap" rel="stylesheet">
+    <!--	<link rel="icon" href="img/2020-10-21 162815.png" type="image/x-icon">-->
+    <!--	<link rel="shortcut icon" href="img/2020-10-21 162815.png" type="image/x-icon">-->
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+<div class="all" style="
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	top: 0;
+	right: 0;
+	z-index: 9999999;
+	background-color: whitesmoke;
+	/*opacity: .4;*/">
+    <p>S</p>
+    <p>h</p>
+    <p>i</p>
+    <p>n</p>
+    <p>i</p>
+    <p>g</p>
+    <p>a</p>
+    <p>m</p>
+    <p>i</p>
+    <p>S</p>
+    <p>t</p>
+    <p>o</p>
+    <p>r</p>
+    <p>e</p>
+</div>
+<style>.all{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    background: #ededed;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    right: 0;
+    z-index: 9999999;
+    text-align: center;
+}
+@font-face {
+    font-family: 'gothic';
+    src: url('../fonts/Sketch.ttf');
+url('../fonts/Sketch.ttf') format('truetype'), font-weight: normal;
+    font-style: normal;
+}
+:root {
+    --effect: hover .8s linear infinite;
+}
+.all p {
+    display: inline-block;
+    text-align: center;
+    font-size: 150px;
+    font-family: 'gothic', serif;
+    font-weight: normal;
+    transform: scale(.5);
+    color: #121212;
+    -webkit-text-stroke: 2px gray;
+}
+.all p {
+    animation: var(--effect) .25s;
+}
+@keyframes hover {
+    0% {
+        transform: scale(.5);
+        color: #121212;
+        -webkit-text-stroke: 2px gray;
+    }
+    20% {
+        transform: scale(1);
+        color: black;
+        -webkit-text-stroke: 3px black;
+        filter: drop-shadow(0 0 1px white)drop-shadow(0 0 1px white)drop-shadow(0 0 3px black)drop-shadow(0 0 5px black)hue-rotate(10turn);
+    }
+    50% {
+        transform: scale(.5);
+        color: #121212;
+        -webkit-text-stroke: 2px gray;
+    }
+}
+@media screen and (max-width: 991px) {
+    .all p {
+        font-size: 110px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .all p {
+        font-size: 90px;
+    }
+}
+@media screen and (max-width: 575px) {
+    .all p {
+        font-size: 60px;
+    }
+}
+@media screen and (max-width: 400px) {
+    .all p {
+        font-size: 50px;
+    }
+}
+</style>
+<div id="top"></div>
+<header id="header" class="header">
+    <div class="topp"></div>
+    <div class="container">
+        <div class="nav">
+            <a onclick="renderIndex()">
+                <img src="img/2020-10-21 162816.png" alt="ShinigamiStore" class="logo">
+            </a>
+            <ul class="menu">
+                <li class="lil">
+                    <a onclick="renderProducts()">
+                        Товары
+                    </a>
+                </li>
+                <li class="lil">
+                    <a href="about.html">
+                        О магазине
+                    </a>
+                </li>
+                <li class="lil">
+                    <a href="#">
+                        Оплата и доставка
+                    </a>
+                </li>
+                <li class="burg_lil">
+                    <button class="menu-open">
+                        <img src="img/Hamburger_icon.svg.png" alt="Open menu">
+                    </button>
+                </li>
+            </ul>
+            <ul class="socials">
+                <li class="soc_lil">
+                    <a href="https://t.me/ShinigamiShop" target="_blank"><img class="soc" src="img/Telegram.jpg" alt="Telegram"></a>
+                </li>
+                <li class="soc_lil">
+                    <a href="https://www.instagram.com/__yourzayka/" target="_blank"><img class="soc" src="img/instagram.jpg" alt="Instagram"></a>
+                </li>
+            </ul>
+            <ul>
+                <li>
+                    <div class="all-bask">
+                        <a onclick="renderCart()"><img class="basket" src="img/png-transparent-shopping-cart-tablet4u-computer-icons-online-shopping-shopping-cart-angle-shopping-c.png" alt=""></a>
+                        <div class="num">
+
+                            <p class="bask-cou">0</p>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</header>
+<section>
+</section>
+<footer id="footer" class="footer">
+    <div class="container">
+        <div class="footer-text">
+            <p><a href="#">shinigami@gmail.com</a></p>
+            <a href="#" class="faq">FAQs</a>
+            <a href="tel:+380508505004" class="tel">+38(050)850-50-04</a>
+        </div>
+        <div class="container">
+            <div class="shipping">
+                Доставка по Украине осуществляется службами доставки: «Новая Почта».
+                <br>
+                «Новая Почта» осуществляет доставку до почтового отделения, индекс которого Вы укажите при оформлении заказа.
+            </div>
+        </div>
+    </div>
+</footer>
+<script src="src/renderItem.js"></script>
+<!--<script src="src/parseJson.js"></script>-->
+<script src="src/script.js"></script>
+
+</body>
+</html>
