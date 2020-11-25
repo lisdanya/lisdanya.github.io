@@ -1,4 +1,4 @@
-const URL = 'http://my-json-server.typicode.com/lisdanya/lisdanya.github.io/db';
+const URL = 'https://my-json-server.typicode.com/lisdanya/lisdanya.github.io/db';
 let name = 'cart'
 const section = document.getElementsByTagName('section')[0]
 const body = document.getElementsByTagName('body')[0]
