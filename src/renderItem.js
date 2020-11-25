@@ -10,7 +10,9 @@ let local = JSON.parse(localStorage.getItem(name))
 
 
 window.onload = () => {
-    localStorage.setItem(name, JSON.stringify(local))
+    if (!localStorage.getItem(name)) {
+        localStorage.setItem(name, '[]')
+    }
     counterCart()
     renderIndex()
 }
