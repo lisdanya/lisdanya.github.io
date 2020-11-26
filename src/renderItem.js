@@ -544,9 +544,6 @@ function renderCart() {
     while (section.firstChild) {
         section.removeChild(section.firstChild)
     }
-    while (footer.firstChild) {
-        footer.removeChild(footer.firstChild)
-    }
     body.removeAttribute("style");
     if (localStorage.getItem(name)) {
         let items = JSON.parse(localStorage.getItem(name))

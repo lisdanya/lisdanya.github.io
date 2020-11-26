@@ -425,6 +425,38 @@ label {
 /*------------footer------------*/
 
 
+.footer-text li a{
+    text-transform: uppercase;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+}
+.tel {
+    font-size: 17px;
+    margin-left: auto;
+    letter-spacing: 0.1em;
+}
+.footer-text {
+    font-size: 15px;
+    font-family: 'Open Sans', sans-serif;
+    display: flex;
+    margin-top: 80px;
+    padding: 14px 0 50px
+}
+.footer-text p {
+    margin-right: auto;
+}
+.footer{
+    background-color: #ededed;
+}
+.faq{
+    margin: 0 auto;
+}
+.shipping{
+    padding-bottom: 14px;
+    font-size: 14px;
+    text-align: center;
+}
+
 
 /*----------scrollTop----------*/
 
