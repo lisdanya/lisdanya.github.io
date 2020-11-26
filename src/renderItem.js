@@ -1,4 +1,4 @@
-const URL = 'https://my-json-server.typicode.com/lisdanya/lisdanya.github.io/db';
+const URL = 'http://my-json-server.typicode.com/lisdanya/lisdanya.github.io/db';
 let name = 'cart'
 const section = document.getElementsByTagName('section')[0]
 const body = document.getElementsByTagName('body')[0]
@@ -55,6 +55,7 @@ function setLocal(array) {
 }
 
 function renderIndex() {
+    scrollTop()
     preloading()
     head.removeChild(head.lastElementChild)
     let style = document.createElement('link');
@@ -163,6 +164,7 @@ function renderIndex() {
 }
 
 function renderProducts() {
+    scrollTop()
     preloading()
     head.removeChild(head.lastElementChild)
     let style = document.createElement('link');
@@ -245,6 +247,7 @@ function counterCart() {
 }
 
 function renderItem(id) {
+    scrollTop()
     preloading()
     head.removeChild(head.lastElementChild)
     let style = document.createElement('link');
@@ -403,7 +406,6 @@ function renderItem(id) {
                         button.innerHTML = 'Уже в корзине'
 
 
-
                     }
                     let q1 = document.getElementsByClassName('q1')[0]
                     let q2 = document.getElementsByClassName('q2')[0]
@@ -438,16 +440,25 @@ function preloading() {
     )
 
 }
-function loading(time=800) {
+
+function loading(time = 800) {
     setTimeout(() => {
-        load.setAttribute('style' , 'display: none')
+        load.setAttribute('style', 'display: none')
         console.log('none');
 
     }, time);
 
 }
 
+function scrollTop() {
+    header.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    })
+}
+
 function renderPopUp(id) {
+    scrollTop()
     body.setAttribute('style', 'overflow: hidden;');
     JSON.stringify(getObj(URL).then(data => {
         for (let key in data.items) {
@@ -501,6 +512,7 @@ function renderPopUp(id) {
     }))
     loading()
 }
+
 //     body.setAttribute('style', 'overflow: hidden;');
 //     let smoke = document.createElement('div');
 //     smoke.setAttribute('class', 'smoke');
@@ -520,7 +532,9 @@ function renderPopUp(id) {
 // }
 
 
+
 function renderCart() {
+    scrollTop()
     preloading()
     head.removeChild(head.lastElementChild)
     let style = document.createElement('link');
