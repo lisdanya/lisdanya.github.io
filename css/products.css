@@ -96,11 +96,15 @@ header a {
     margin: 0;
 }
 .basket{
+    display: flex;
     position: absolute;
     bottom: 15px;
     margin-left: 20px;
     width: 30px;
     height: 30px;
+}
+.nab{
+    display: none;
 }
 
 /*---------menu---------*/
@@ -603,38 +607,47 @@ header a {
 
 }
 @media screen and (max-width: 575px) {
-    body{
-        overflow-x:hidden;
+    body {
+        overflow-x: hidden;
     }
+
     .container,
     .container_nav {
         width: 100%;
         padding: 0 15px;
     }
+
     .offer h1 {
         font-size: 80px;
     }
+
     .offer p {
         font-size: 50px;
     }
+
     .menu-open {
         margin-left: auto;
     }
+
     .offer p {
         font-size: 42px;
         text-align: center;
     }
+
     .logo {
         margin-bottom: 20px;
     }
-    .btn{
+
+    .btn {
         margin: 0 auto;
     }
+
     .offer p {
         margin-left: 0;
         text-align: center;
     }
-    button{
+
+    button {
         padding: 0;
         left: 0;
         bottom: 0;
@@ -643,39 +656,62 @@ header a {
         float: left;
         margin-top: 15px;
     }
-    .footer-text{
+
+    .footer-text {
         padding-bottom: 14px;
         margin: 40px auto 0 auto;
         max-width: 200px;
         text-align: center;
     }
-    .footer-text p{
+
+    .footer-text p {
         margin: 0 auto;
         padding-right: 10px;
     }
+
     .footer-text p:nth-child(1) {
         margin-bottom: 5px;
     }
-    .footer-text a{
+
+    .footer-text a {
         margin: 0 auto;
         margin-bottom: 5px;
         padding-left: 10px;
     }
-    .shipping{
+
+    .shipping {
         display: none;
     }
-    .row{
+
+    .row {
         flex-wrap: wrap;
     }
-    .col-1{
+
+    .col-1 {
         margin-top: 7px;
     }
-    .title p{
+
+    .title p {
         font-size: 20px;
     }
-    .all-bask{
+
+    .all-bask {
         margin-right: 80px;
     }
+
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6 {
+        height: 560px;
+    }
+    .some{
+        height: 560px;
+    }
+}
+@media screen and (max-width: 375px) {
     .col-1,
     .col-2,
     .col-3,
@@ -685,15 +721,21 @@ header a {
         height: 500px;
 
     }
-    @media screen and (max-width: 375px) {
-        .col-1,
-        .col-2,
-        .col-3,
-        .col-4,
-        .col-5,
-        .col-6{
-            height: 480px;
+    .some{
+        height: 500px;
+    }
+}
+@media screen and (max-width: 340px) {
+    .col-1,
+    .col-2,
+    .col-3,
+    .col-4,
+    .col-5,
+    .col-6{
+        height: 460px;
 
-        }
+    }
+    .some{
+        height: 460px;
     }
 }
