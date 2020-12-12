@@ -117,12 +117,12 @@ url('../fonts/Sketch.ttf') format('truetype'), font-weight: normal;
     <div class="topp"></div>
     <div class="container">
         <div class="nav">
-            <a onclick="renderIndex()">
+            <a onclick="location.hash = 'main'">
                 <img src="img/LOGO.png" alt="ShinigamiStore" class="logo">
             </a>
             <ul class="menu">
                 <li class="lil">
-                    <a onclick="renderProducts()">
+                    <a onclick="location.hash = 'products'">
                         Товары
                     </a>
                 </li>
@@ -153,9 +153,8 @@ url('../fonts/Sketch.ttf') format('truetype'), font-weight: normal;
             <ul>
                 <li>
                     <div class="all-bask">
-                        <a onclick="renderCart()"><img class="basket" src="img/png-transparent-shopping-cart-tablet4u-computer-icons-online-shopping-shopping-cart-angle-shopping-c.png" style="width: 30px; height: 30px" alt=""></a>
+                        <a onclick="location.hash = 'cart'"><img class="basket" src="img/png-transparent-shopping-cart-tablet4u-computer-icons-online-shopping-shopping-cart-angle-shopping-c.png" style="width: 30px; height: 30px" alt=""></a>
                         <div class="num">
-
                             <p class="bask-cou">0</p>
                         </div>
                     </div>

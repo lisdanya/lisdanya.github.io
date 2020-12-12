@@ -14,7 +14,33 @@ window.onload = () => {
         localStorage.setItem(name, '[]')
     }
     counterCart()
-    renderIndex()
+    // renderIndex()
+    routing()
+}
+
+window.onhashchange = () => {
+    counterCart()
+    routing()
+}
+
+function routing() {
+    if(location.hash.slice(1) === 'main'||location.hash === ''){
+        renderIndex()
+    }
+    else if(location.hash.slice(1) === 'products'){
+       renderProducts()
+    }
+    else if(location.hash.slice(1,6) === 'item_'){
+        let id = location.hash.slice(6)
+        console.log(id)
+        if (id<=5||id>=0){
+            renderItem(id)
+        }else{
+            location.hash = ""
+        }
+    }else if(location.hash.slice(1) === 'cart'){
+        renderCart()
+    }
 }
 
 function getObj(url) {
@@ -55,9 +81,13 @@ function setLocal(array) {
 }
 
 function renderIndex() {
+    // location.hash = 'main'
     scrollTop()
     preloading()
     head.removeChild(head.lastElementChild)
+    while (section.firstChild) {
+        section.removeChild(section.firstChild)
+    }
     let style = document.createElement('link');
     style.setAttribute('rel', 'stylesheet');
     style.setAttribute('href', 'css/main.css');
@@ -74,7 +104,7 @@ function renderIndex() {
         banner.setAttribute('class', 'banner');
         section.appendChild(banner)
         let a = document.createElement('a');
-        a.setAttribute('onClick', 'renderProducts()');
+        a.setAttribute('onclick', 'location.hash = "products"');
         banner.appendChild(a)
         let img = document.createElement('img');
         img.setAttribute('src', 'img/BANNER_ALMOST_FINAL-1600x900.png');
@@ -83,11 +113,11 @@ function renderIndex() {
         let button = document.createElement('button');
         banner.appendChild(button)
         let btn = document.createElement('a');
-        btn.setAttribute('onClick', 'renderProducts()');
+        btn.setAttribute('onclick', 'location.hash = "products"');
         btn.innerHTML = 'Товары'
         button.appendChild(btn)
         let aA = document.createElement('a');
-        aA.setAttribute('onClick', 'renderProducts()');
+        aA.setAttribute('onclick', 'location.hash = "products"');
         banner.appendChild(aA)
         let picture = document.createElement('picture');
         aA.appendChild(picture)
@@ -119,7 +149,7 @@ function renderIndex() {
         newCollection.setAttribute('class', 'new-collection');
         container.appendChild(newCollection)
         let aAA = document.createElement('a');
-        aAA.setAttribute('onClick', 'renderProducts()');
+        aAA.setAttribute('onclick', 'location.hash = "products"');
         newCollection.appendChild(aAA)
         let imgGG = document.createElement('img');
         imgGG.setAttribute('src', 'img/NEW_COLLECTION2.png');
@@ -153,7 +183,7 @@ function renderIndex() {
             price.appendChild(priceNew)
             let some = document.createElement('div');
             some.setAttribute('class', 'some');
-            some.setAttribute('onclick', "renderItem('" + data.items[key].id + "');");
+            some.setAttribute('onclick', 'location.hash = "item_'+ data.items[key].id +'";');
             col.appendChild(some)
             if (c === 3) {
                 break
@@ -164,6 +194,7 @@ function renderIndex() {
 }
 
 function renderProducts() {
+    // location.hash = 'products'
     scrollTop()
     preloading()
     head.removeChild(head.lastElementChild)
@@ -232,7 +263,7 @@ function renderProducts() {
             price.appendChild(priceNew)
             let some = document.createElement('div');
             some.setAttribute('class', 'some');
-            some.setAttribute('onclick', "renderItem('" + data.items[key].id + "');");
+            some.setAttribute('onclick', 'location.hash = "item_'+ data.items[key].id +'";');
             col.appendChild(some)
         }
     }))
@@ -247,6 +278,7 @@ function counterCart() {
 }
 
 function renderItem(id) {
+    // location.hash = 'item_'+id
     scrollTop()
     preloading()
     head.removeChild(head.lastElementChild)
@@ -322,7 +354,7 @@ function renderItem(id) {
                 description.appendChild(ordering)
                 let button = document.createElement('button');
                 button.setAttribute('id', data.items[key].id);
-                button.setAttribute('onclick', 'counterCart()');
+                button.setAttribute('onclick', 'location.hash = "cart"');
                 button.innerHTML = 'Добавить в корзину'
                 ordering.appendChild(button)
                 let textDescription = document.createElement('div');
@@ -376,7 +408,7 @@ function renderItem(id) {
                         price.appendChild(priceNew)
                         let some = document.createElement('div');
                         some.setAttribute('class', 'some');
-                        some.setAttribute('onclick', "renderItem('" + data.items[key].id + "');");
+                        some.setAttribute('onclick', 'location.hash = "item_'+ data.items[key].id +'";');
                         col.appendChild(some)
                         if (c === 3) {
                             break
@@ -499,11 +531,11 @@ function renderPopUp(id) {
                 colPop.appendChild(buttons)
                 let continuE = document.createElement('button');
                 continuE.setAttribute('class', 'continue')
-                continuE.setAttribute('onclick', "renderProducts()");
+                continuE.setAttribute('onclick', 'location.hash = "products"');
                 continuE.innerHTML = 'Продолжить покупки'
                 buttons.appendChild(continuE)
                 let toCart = document.createElement('button');
-                toCart.setAttribute('onclick', "renderCart()");
+                toCart.setAttribute('onclick', 'location.hash = "cart"');
                 toCart.setAttribute('class', 'toCart')
                 toCart.innerHTML = 'В корзину'
                 buttons.appendChild(toCart)
@@ -513,27 +545,8 @@ function renderPopUp(id) {
     loading()
 }
 
-//     body.setAttribute('style', 'overflow: hidden;');
-//     let smoke = document.createElement('div');
-//     smoke.setAttribute('class', 'smoke');
-//     section.appendChild(smoke)
-//     let popUp = document.createElement('div');
-//     popUp.setAttribute('class', 'popUp');
-//     section.appendChild(popUp);
-//     let thanks = document.createElement('div')
-//     thanks.innerHTML = '<div id="content" class="col-sm-12">\n' +
-//         '      <h1>Ваш заказ принят!</h1>\n' +
-//         '      <p>Ваш заказ принят!</p><p>Если у Вас возникли вопросы, пожалуйста <a href="https://alanterz.com/contact">свяжитесь с нами</a>.</p><p>Спасибо за покупки в нашем интернет-магазине!</p>\n' +
-//         '      <div class="buttons">\n' +
-//         '        <div class="pull-right"><a href="https://alanterz.com/" class="btn btn-primary">Продолжить</a></div>\n' +
-//         '      </div>\n' +
-//         '      </div>'
-//     popUp.appendChild(thanks)
-// }
-
-
-
 function renderCart() {
+    // location.hash = 'cart'
     scrollTop()
     preloading()
     head.removeChild(head.lastElementChild)
@@ -689,7 +702,6 @@ function check(id, price) {
                 a = Number((col.children[i].children[0].children[1].children[1].innerHTML).substring(0, ((col.children[i].children[0].children[1].children[1].innerHTML).length - 4)));
                 console.log(a);
                 sum += a
-
             }
         }
         counterCart()
