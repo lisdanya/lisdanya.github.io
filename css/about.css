@@ -637,7 +637,7 @@ url('../fonts/Sketch.ttf') format('truetype'), font-weight: normal;
     .footer-text a{
         margin: 0 auto;
         margin-bottom: 5px;
-        padding-left: 10px;
+        padding-left: 0px;
     }
     .shipping{
         display: none;
@@ -649,7 +649,11 @@ url('../fonts/Sketch.ttf') format('truetype'), font-weight: normal;
     .all-bask{
         margin-right: 80px;
     }
+    .text-block{
+        margin-left: 30px;
+    }
 }
+
 .roww {
     display: -ms-flexbox; /* IE10 */
     display: flex;

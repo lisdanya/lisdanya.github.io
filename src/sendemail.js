@@ -21,7 +21,6 @@ function sendEmail() {
             counterForCart.push(forAppendCountItems)
             sizeForCart.push(forSizeForCart)
         }
-
     }
 
     Email.send({
@@ -30,7 +29,7 @@ function sendEmail() {
         Username : "smtp@cc-interactive.com",
         Password : "TqRge7Ja2wf4hnuj",
         To : 'shinigamistore.official@gmail.com',
-        From : "shinigamistore.official@gmail.com",
+        From : email == null ? email: "shinigamistore.official@gmail.com",
         Subject : "Shinigami",
         Body : " <table style=\"width:50%\ align:left\">\n" +
             "  <tr>\n" +

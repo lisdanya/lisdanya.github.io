@@ -754,7 +754,7 @@ header a {
         display: flex;
     }
     .shipping {
-        text-align: left;
+        text-align: center !important;
     }
     .all-bask {
         margin-right: 470px;
@@ -815,7 +815,7 @@ header a {
     .footer-text a {
         margin: 0 auto;
         margin-bottom: 5px;
-        padding-left: 10px;
+        padding-left: 0px;
     }
     .shipping {
         display: none;

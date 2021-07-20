@@ -806,7 +806,7 @@ label {
     /*	margin-top: 15px;*/
     /*}*/
     .shipping {
-        text-align: left;
+        text-align: center !important;
     }
     .all-bask {
         margin-right: 470px;
@@ -885,7 +885,7 @@ label {
     .footer-text a {
         margin: 0 auto;
         margin-bottom: 5px;
-        padding-left: 10px;
+        padding-left: 0px;
     }
     .shipping {
         display: none;
