@@ -1,10 +1,14 @@
 @font-face {
     font-family: 'gothic';
     src: url('../fonts/Sketch.ttf');
-url('../fonts/Sketch.ttf') format('truetype'), font-weight: normal;
+    url('../fonts/Sketch.ttf') format('truetype'),
+    font-weight: normal;
     font-style: normal;
 }
+
+
 /*-------------default-------------*/
+
 body {
     padding: 0;
     margin: 0;
@@ -12,49 +16,68 @@ body {
     color: black;
     font-size: 16px;
 }
+
 * {
     box-sizing: border-box;
 }
+
 button:focus {
     outline: none
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     padding: 0;
     margin: 0;
 }
+
 h2 {
     font-family: "Trebuchet MS", serif;
     font-size: 50px;
     margin-bottom: 58px;
 }
+
 h3 {
     font-size: 25px;
     margin-bottom: 28px;
 }
+
 a {
     text-decoration: none;
     color: black;
 }
+
 p {
     margin: 0;
 }
-ul, li {
+
+ul,
+li {
     list-style-type: none;
     padding: 0;
     margin: 0;
 }
-footer a{
+
+footer a {
     color: black;
 }
+
 header a {
     color: black;
 }
+
+
 /*---------------------------------*/
 
 .container {
     width: 1170px;
     margin: 0 auto;
 }
+
 
 /*-------------header-------------*/
 
@@ -69,6 +92,7 @@ header a {
     z-index: 1000000;
     background-color: #ededed;
 }
+
 .white {
     height: 220px;
     width: 100%;
@@ -83,7 +107,6 @@ header a {
     width: 100%;
     padding: 40px 20px 20px 40px;
     z-index: 1000;
-
 }
 
 .header .show-menu li {
@@ -100,15 +123,18 @@ header a {
     width: 70px;
     height: 90px;
 }
-.socials{
+
+.socials {
     display: flex;
     margin: 0;
 }
-#top{
+
+#top {
     margin-top: -112px;
     top: 0;
     left: 0;
 }
+
 
 /*---------menu---------*/
 
@@ -119,14 +145,17 @@ header a {
     font-family: 'Raleway', sans-serif;
     font-weight: bold;
 }
+
 .menu li a {
     text-transform: uppercase;
     font-size: 24px;
     letter-spacing: 0.1em;
 }
-.menu li{
+
+.menu li {
     margin-right: 40px;
 }
+
 .menu a {
     text-decoration: none;
     background-image: linear-gradient(currentColor, currentColor);
@@ -135,17 +164,17 @@ header a {
     background-size: 0% 2px;
     transition: background-size .3s;
 }
+
 .menu a:hover {
     background-size: 100% 2px;
 }
+
 .menu-open {
     background: none;
     border: none;
     margin-left: 20px;
     display: none
 }
-
-
 
 .soc {
     width: 30px;
@@ -154,12 +183,10 @@ header a {
     margin-left: 5px;
     border-radius: 20px;
 }
-.socials li{
+
+.socials li {
     margin-right: 0;
 }
-
-
-
 
 .offer p {
     font-family: 'gothic', serif;
@@ -169,6 +196,7 @@ header a {
     letter-spacing: 0.001em;
     margin-left: 15px;
 }
+
 .btn {
     margin: auto;
     display: inline-block;
@@ -185,78 +213,101 @@ header a {
     transition: all 0.5s ease;
     z-index: 1000;
 }
+
+
 /*.btn:hover {*/
+
+
 /*	background: black;*/
+
+
 /*	color: white;*/
+
+
 /*}*/
 
+
 /*---------------main---------------*/
-.title{
+
+.title {
     width: 100%;
     height: 100px;
     background-color: #e1e1e1;
     margin-bottom: 70px;
-
 }
-.title h1{
-    text-transform: uppercase; /*temporary*/
+
+.title h1 {
+    text-transform: uppercase;
+    /*temporary*/
     padding-top: 25px;
     text-align: center;
     font-size: 50px;
 }
-.container-main{
+
+.container-main {
     width: 1000px;
     margin: 10px auto 0;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
-.col{
+
+.col {
     flex-direction: column;
     justify-content: center;
     width: 50%;
 }
-.image{
-    display: flex;
-    flex-direction: row;
-}
-.item{
-    margin-top: -20px;
 
-}
-.block{
+.image {
     display: flex;
     flex-direction: row;
 }
-.bask-img{
+
+.item_c {
+    margin-top: -20px;
+}
+
+.block {
+    display: flex;
+    flex-direction: row;
+}
+
+.bask-img {
     width: 100px;
     height: 100px;
     margin-right: 40px;
 }
-.desc{
+
+.desc {
     margin-right: auto;
     display: flex;
     flex-direction: column;
 }
-.desc h4{
+
+.desc h4 {
     font-size: 30px;
     margin-bottom: 10px;
 }
-.desc p{
+
+.desc p {
     font-size: 22px;
 }
-.column{
+
+.column {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
-.count{
+
+.count {
     display: flex;
     flex-direction: row;
     text-align: center;
     margin: auto 50px;
 }
-.plus, .minus{
+
+.plus,
+.minus {
     transition: none;
     border: none;
     width: 35px;
@@ -266,34 +317,42 @@ header a {
     color: white;
     font-size: 20px;
 }
-.counter{
+
+.counter {
     width: 40px;
     margin: auto 0;
     padding: 0 17px 0 15px;
 }
+
 .s-img {
     height: 90px;
     width: 90px;
 }
-.link-s-img{
+
+.link-s-img {
     cursor: pointer;
 }
-.img-ul{
+
+.img-ul {
     margin-top: 20px;
 }
-.features{
+
+.features {
     margin-top: 5px;
 }
 
-.s-title h1{
-    text-transform: uppercase; /*temporary*/
+.s-title h1 {
+    text-transform: uppercase;
+    /*temporary*/
     font-size: 40px;
 }
-.price h2{
+
+.price h2 {
     font-size: 30px;
     margin-bottom: 30px;
 }
-.ordering button{
+
+.ordering1 input {
     border: none;
     outline: none;
     width: 240px;
@@ -307,13 +366,16 @@ header a {
     margin-bottom: 40px;
     margin-top: 10px;
 }
-.text-description{
+
+.text-description {
     width: 75%;
 }
-.text-description h5{
+
+.text-description h5 {
     font-size: 25px;
     padding-bottom: 20px;
 }
+
 .text-description p {
     font-family: Raleway, serif;
     font-size: 16px;
@@ -321,24 +383,28 @@ header a {
     line-height: 26px;
     padding-bottom: 20px;
 }
-.text-description ul{
+
+.text-description ul {
     padding-left: 20px;
     padding-bottom: 30px;
-
 }
-.text-description li{
+
+.text-description li {
     font-size: 18px;
     font-weight: bold;
     list-style-type: disc;
-
 }
-.total{
+
+.total {
     margin-top: 20px;
     margin-left: 140px;
     font-size: 20px;
     font-weight: bold;
 }
-input[type=text], input[type=tel], input[type=email] {
+
+input[type=text],
+input[type=tel],
+input[type=email] {
     width: 100%;
     margin-bottom: 20px;
     padding: 12px;
@@ -351,13 +417,15 @@ label {
     display: block;
 }
 
-.head-form{
+.head-form {
     margin-top: 50px;
 }
-.ordering{
+
+.ordering1 {
     margin: 30px auto;
 }
-.ordering button{
+
+.ordering1 input {
     border: none;
     outline: none;
     width: 340px;
@@ -371,19 +439,22 @@ label {
     margin-bottom: 40px;
     margin-top: 10px;
 }
-.img-title{
+
+.img-title {
     display: flex;
     margin-right: auto;
 }
-.popUp{
+
+.popUp {
     position: fixed;
     margin: auto;
-    top:calc(50% - 200px);
-    bottom:calc(50% - 200px);
-    left:calc(50% - 400px);
-    right:calc(50% - 400px);
+    top: calc(50% - 200px);
+    bottom: calc(50% - 200px);
+    left: calc(50% - 400px);
+    right: calc(50% - 400px);
 }
-.smoke{
+
+.smoke {
     position: absolute;
     right: 0;
     left: 0;
@@ -392,17 +463,20 @@ label {
     background-color: black;
     opacity: .4;
 }
+
 .col-pop {
     background-color: #ffffff;
 }
-.basket{
+
+.basket {
     position: absolute;
     bottom: 15px;
     margin-left: 20px;
     width: 30px;
     height: 30px;
 }
-.num{
+
+.num {
     position: absolute;
     height: 20px;
     width: 20px;
@@ -412,29 +486,33 @@ label {
     right: 0;
     top: 0;
 }
-.all-bask{
+
+.all-bask {
     position: relative;
     width: 60px;
     height: 55px;
 }
+
 .bask-cou {
     line-height: 20px;
     text-align: center;
 }
 
+
 /*------------footer------------*/
 
-
-.footer-text li a{
+.footer-text li a {
     text-transform: uppercase;
     font-size: 14px;
     letter-spacing: 0.1em;
 }
+
 .tel {
     font-size: 17px;
     margin-left: auto;
     letter-spacing: 0.1em;
 }
+
 .footer-text {
     font-size: 15px;
     font-family: 'Open Sans', sans-serif;
@@ -442,16 +520,20 @@ label {
     margin-top: 80px;
     padding: 14px 0 50px
 }
+
 .footer-text p {
     margin-right: auto;
 }
-.footer{
+
+.footer {
     background-color: #ededed;
 }
-.faq{
+
+.faq {
     margin: 0 auto;
 }
-.shipping{
+
+.shipping {
     padding-bottom: 14px;
     font-size: 14px;
     text-align: center;
@@ -483,13 +565,16 @@ label {
     -o-transform: scale(1);
     transform: scale(1);
 }
-.arrow{
+
+.arrow {
     max-width: 43px;
     max-height: 43px;
 }
+
 #idTop:hover {
     opacity: 1;
 }
+
 
 /*------------media------------*/
 
@@ -497,7 +582,7 @@ label {
     .container {
         width: 1140px;
     }
-    .shipping{
+    .shipping {
         font-size: 14px;
     }
 }
@@ -506,13 +591,14 @@ label {
     .container {
         width: 960px;
     }
-    .container-main{
+    .container-main {
         width: 940px;
     }
-    .item{
+    .item_c {
         width: 75%;
     }
-    .desc-left, .desc-right {
+    .desc-left,
+    .desc-right {
         width: 48%;
     }
     .gallery img:nth-child(1) {
@@ -527,29 +613,28 @@ label {
 }
 
 @media screen and (max-width: 991px) {
-    body{
-        overflow-x:hidden;
+    body {
+        overflow-x: hidden;
     }
     .container {
         width: 720px;
     }
-    .container-main{
+    .container-main {
         width: 767px;
     }
     .white {
         height: 195px;
     }
-    .menu li a{
+    .menu li a {
         font-size: 18px;
     }
-    .r{
+    .r {
         margin-left: 100px;
     }
-    .item{
+    .item_c {
         width: 95%;
     }
-
-    .img-ul{
+    .img-ul {
         margin-right: 10px;
     }
     .s-img {
@@ -559,10 +644,10 @@ label {
     .text-description {
         width: 90%;
     }
-    .size-grid img{
+    .size-grid img {
         width: 90%;
     }
-    .logo{
+    .logo {
         width: 56px;
         height: 72px;
     }
@@ -570,10 +655,10 @@ label {
         margin-right: 10px;
         margin-left: 10px;
     }
-    .banner{
+    .banner {
         margin-top: 90px;
     }
-    .col{
+    .col {
         flex-direction: column;
         justify-content: center;
         width: 40%;
@@ -581,74 +666,74 @@ label {
 }
 
 @media screen and (max-width: 767px) {
-    body{
-        overflow-x:hidden;
+    body {
+        overflow-x: hidden;
     }
-    .header{
+    .header {
         padding-top: 3px;
         height: 75px;
     }
-    .col{
+    .col {
         width: 90%;
     }
-    .image{
+    .image {
         width: 100%;
     }
-    .item{
+    .item_c {
         width: 90%;
         margin-left: 10px;
     }
-    .r{
+    .r {
         margin-left: 30px;
         margin-right: 30px;
     }
-    .link-s-img img{
+    .link-s-img img {
         height: 130px;
         width: 130px;
     }
-    .ordering button{
+    .ordering1 input {
         width: 100%;
     }
     .white {
         height: 186px;
     }
-    .ordering {
+    .ordering1 {
         width: 100%;
     }
-    .banner{
+    .banner {
         margin-top: 72px;
     }
     .container {
         width: 540px;
     }
-    .container-main{
+    .container-main {
         width: 95%;
     }
-    .lil{
+    .lil {
         display: none;
     }
-    .socials{
-        margin-right: auto ;
-        margin-left: 20px ;
+    .socials {
+        margin-right: auto;
+        margin-left: 20px;
     }
     .menu-open {
         display: block;
         margin-left: auto;
     }
-    .menu-open img{
+    .menu-open img {
         position: absolute;
         right: 30px;
         top: 30px;
         height: 40px;
     }
-    .menu{
+    .menu {
         margin: 0;
         width: 0;
         height: 0;
     }
     .menu-open {
         top: 0;
-        right:  0;
+        right: 0;
         width: 40px;
         height: 40px;
     }
@@ -663,7 +748,8 @@ label {
     .description {
         flex-wrap: wrap;
     }
-    .desc-left, .desc-right {
+    .desc-left,
+    .desc-right {
         width: 100%;
     }
     .desc-left {
@@ -687,26 +773,27 @@ label {
     .logo {
         margin-bottom: 20px;
     }
-    .col-2, .col-3{
+    .col-2,
+    .col-3 {
         flex: 0 0 50%;
     }
-    .col-1{
+    .col-1 {
         display: none;
     }
-    .show-menu{
+    .show-menu {
         display: block;
         height: 220px;
     }
-    .show-lil{
+    .show-lil {
         display: flex;
     }
-    .telegram-btn button{
+    .telegram-btn button {
         width: 100%;
     }
-    .bask-img{
+    .bask-img {
         margin: 0;
     }
-    .total{
+    .total {
         margin-left: 5px;
     }
     /*button{*/
@@ -718,23 +805,22 @@ label {
     /*	float: left;*/
     /*	margin-top: 15px;*/
     /*}*/
-    .shipping{
+    .shipping {
         text-align: left;
     }
-    .all-bask{
+    .all-bask {
         margin-right: 470px;
     }
 }
 
 @media screen and (max-width: 575px) {
-    body{
-        overflow-x:hidden;
+    body {
+        overflow-x: hidden;
     }
-    .image{
+    .image {
         width: 100%;
     }
-
-    .item{
+    .item_c {
         width: 70%;
         height: 70%;
         margin-left: 10px;
@@ -743,14 +829,14 @@ label {
         width: 100px;
         height: 100px;
     }
-    .r{
+    .r {
         margin-left: 30px;
     }
     .container {
         width: 100%;
         padding: 0 15px;
     }
-    .container-main{
+    .container-main {
         width: 95%;
     }
     .offer h1 {
@@ -769,47 +855,49 @@ label {
     .logo {
         margin-bottom: 20px;
     }
-    .col-3{
+    .col-3 {
         flex: 0 0 100%;
     }
-    .col-1, .col-2{
+    .col-1,
+    .col-2 {
         display: none;
     }
-    .btn{
+    .btn {
         margin: 0 auto;
     }
     .offer p {
         margin-left: 0;
         text-align: center;
     }
-    .footer-text{
+    .footer-text {
         padding-bottom: 14px;
         margin: 40px auto 0 auto;
         max-width: 200px;
         text-align: center;
     }
-    .footer-text p{
+    .footer-text p {
         margin: 0 auto;
         padding-right: 10px;
     }
     .footer-text p:nth-child(1) {
         margin-bottom: 5px;
     }
-    .footer-text a{
+    .footer-text a {
         margin: 0 auto;
         margin-bottom: 5px;
         padding-left: 10px;
     }
-    .shipping{
+    .shipping {
         display: none;
     }
-    .count{
+    .count {
         display: flex;
         flex-direction: row;
         text-align: center;
         margin: auto 15px;
     }
-    .plus, .minus{
+    .plus,
+    .minus {
         transition: none;
         border: none;
         width: 35px;
@@ -819,26 +907,27 @@ label {
         color: white;
         font-size: 20px;
     }
-    .counter{
+    .counter {
         width: 25px;
         margin: auto 0;
         padding: 0 10px 0 7px;
     }
-    .img-title{
+    .img-title {
         flex-direction: column;
     }
-    .desc{
+    .desc {
         margin-left: 10px;
     }
-    .all-bask{
+    .all-bask {
         margin-right: 80px;
     }
 }
+
 @media screen and (max-width: 425px) {
-    .image{
+    .image {
         width: 100%;
     }
-    .item{
+    .item_c {
         width: 70%;
         height: 70%;
         margin-left: 10px;
@@ -847,11 +936,11 @@ label {
         width: 70px;
         height: 70px;
     }
-    .desc h4{
+    .desc h4 {
         margin-top: 10px;
         font-size: 18px;
     }
-    .desc p{
+    .desc p {
         font-size: 18px;
     }
 }

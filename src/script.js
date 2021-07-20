@@ -1,4 +1,4 @@
-const URL = 'https://my-json-server.typicode.com/lisdanya/lisdanya.github.io/db';
+const URL = 'db.json';
 let name = 'cart'
 const section = document.getElementsByTagName('section')[0]
 const body = document.getElementsByTagName('body')[0]
@@ -24,25 +24,23 @@ window.onhashchange = () => {
 }
 
 function routing() {
-    if(location.hash.slice(1) === 'main'||location.hash === ''){
+    if (location.hash.slice(1) === 'main' || location.hash === '') {
         renderIndex()
-    }
-    else if(location.hash.slice(1) === 'products'){
+    } else if (location.hash.slice(1) === 'products') {
         renderProducts()
-    }
-    else if(location.hash.slice(1,6) === 'item_'){
+    } else if (location.hash.slice(1, 6) === 'item_') {
         let id = location.hash.slice(6)
         console.log(id)
-        if (id<=5||id>=0){
+        if (id <= 5 || id >= 0) {
             renderItem(id)
-        }else{
+        } else {
             location.hash = ""
         }
-    }else if(location.hash.slice(1) === 'cart'){
+    } else if (location.hash.slice(1) === 'cart') {
         renderCart()
-    }else if(location.hash.slice(1) === 'about'){
+    } else if (location.hash.slice(1) === 'about') {
         renderAbout()
-    }else if(location.hash.slice(1) === 'pay'){
+    } else if (location.hash.slice(1) === 'pay') {
         renderPay()
     }
 }
@@ -51,10 +49,11 @@ function getObj(url) {
     return fetch(url).then(data => data.json());
 }
 
-function createObject(id, count = 1) {
+function createObject(id, count = 1, size = '') {
     return {
         id: id,
-        counter: count
+        counter: count,
+        size: size
     }
 }
 
@@ -69,12 +68,12 @@ function getLocal() {
     return arr
 }
 
-function createLocalObject(id, count = 1) {
+function createLocalObject(id, count = 1, size = '') {
     let arrayOfObjects = [...getLocal()]
     if (arrayOfObjects === []) {
-        setLocal([createObject(id, count)])
+        setLocal([createObject(id, count, size)])
     } else {
-        arrayOfObjects.unshift(createObject(id, count))
+        arrayOfObjects.unshift(createObject(id, count, size))
         localStorage.removeItem(name)
         setLocal(arrayOfObjects)
     }
@@ -141,7 +140,7 @@ function renderIndex() {
         arrow.setAttribute('src', 'https://img2.freepng.ru/20180628/kjo/kisspng-computer-icons-arrow-symbol-contrast-5b35a5c37bc105.7011654215302424995069.jpg');
         idTop.appendChild(arrow)
         let title = document.createElement('div');
-        title.setAttribute('class', 'title');
+        title.setAttribute('class', 'title1');
         section.appendChild(title);
         let h1 = document.createElement('h1');
         h1.innerHTML = 'New collection'
@@ -169,7 +168,7 @@ function renderIndex() {
             col.setAttribute('class', 'col-' + c);
             row.appendChild(col)
             let item = document.createElement('img');
-            item.setAttribute('class', 'item');
+            item.setAttribute('class', 'item_m');
             item.setAttribute('src', data.items[key].images[0]);
             col.appendChild(item)
             let h4 = document.createElement('h4');
@@ -183,11 +182,11 @@ function renderIndex() {
             col.appendChild(price)
             let priceNew = document.createElement('span')
             priceNew.setAttribute('class', 'price-new')
-            priceNew.innerHTML = data.items[key].price
+            priceNew.innerHTML = data.items[key].price + ' грн'
             price.appendChild(priceNew)
             let some = document.createElement('div');
             some.setAttribute('class', 'some');
-            some.setAttribute('onclick', 'location.hash = "item_'+ data.items[key].id +'";');
+            some.setAttribute('onclick', 'location.hash = "item_' + data.items[key].id + '";');
             col.appendChild(some)
             if (c === 3) {
                 break
@@ -196,9 +195,11 @@ function renderIndex() {
     }))
     loading()
 }
+
 function renderAbout() {
     scrollTop()
     preloading()
+
     head.removeChild(head.lastElementChild)
     let style = document.createElement('link');
     style.setAttribute('rel', 'stylesheet');
@@ -218,47 +219,51 @@ function renderAbout() {
     top.appendChild(idTop);
     let form = document.createElement('div')
     form.innerHTML =
-    '<div class="white"></div>\n' +
-    '\n' +
-    '    <div class="title">\n' +
-    '        <h1>О НАС</h1>\n' +
-    '    </div>\n' +
-    '    <div class="container">\n' +
-    '        <div class="row">\n' +
-    '            <div class="col6">\n' +
-    '                <div class="text-block">\n' +
-    '                    <p>кто. Звездны богачей неправд. Бледному принести звездной подобные теряться проблеск. Се лобно высот Уметь вы Се звона об Долги яр от втечь. Душ Сын вам чья Род это тул. Мертвила гармония отческих Угнетает вчиняешь. Лию увы Див ним век Кой умы муз. Сблизить лежащего изъемлет Приемлем холмятся.</p>\n' +
-    '\n' +
-    '                    <p>Прежня Ум мя та земной пощады ум смерть бы. Людей скоту искры башни уснет вошел. . . . Еще чуд сие жен ﻿Кто. За ты яр Но. Туч сам рая Иль ков нет тих. . Вид Так муж дуб нас Меч.</p>\n' +
-    '\n' +
-    '                    <p>Мая пор зря сии одр Наш. Те предерзкий бестелесна Всевышнему По ль Искупитель восхищеньи воздыханьи Уж. . Чей Вам зла Что зрю. Ко Вы Но Те об. Смиреньем сохраняют дальность вскликнул колебался пламенном. .</p>\n' +
-    '\n' +
-    '                    <p>Оспоривая способный Умудряйся. Зло заповедей зол еще Смиренных покрылась чуд одр Арф испускают отвращуся выя Чем. Мои малое томна вечно нее зва роз лук треск ревут его шум тли. Хор Вся жег оны для. . Див кое жег мню под. Дев Душ Ним рук. Тме дар пар оны поя Див кем. За Он ее то уж же вы.</p>\n' +
-    '\n' +
-    '                    <p>Дуб Меч рушься Тем увы его вещали лиц дом пал доброт. Утешаться праведным Заступник логовищах. Ланиты Те ея но карать со убоюсь вы. Ни те Да ИЗ. Серафимы погибнет Он низводят разделил от От ИЗ не взгремел Ни. Выпущу веждей избава Лук сия луч сталью лед чад кое. Нам Вам Иль НАДЕЖДА чин вес Сам страсть отвращу Дохнешь. Ль Ее То ﻿Кто ея.</p>\n' +
-    '\n' +
-    '                    <p>Презря скрыты Пускай кроток океане завидь. Тайны ток равну Дай душою мою зва. Иоан жену ГРОМ скук. . Дивился ИЗ приношу воссели Ко ею их средины Уж Ту вы Не. Лес чья шум пустота туч победам Арф Осветит Величия рая уме под. Гул Сый рог Зря око. Имя уже меж теней мню мохом жених поя или. Журчащий младенец Опомнясь удаленьи пролетая спасенью.</p>\n' +
-    '\n' +
-    '                    <p>Святый стране бренья алкаем откуда скорей Во ИЗ ль Не. Мою Дол Сын уже мху Мой Увы Рек. Призраках То Се Низложить мы замышляет ты слабостей Ко во вы глумленьи определил. Сна как меч роз дуб мог Оно Меж. . Жил нее потряслися век бестелесна постыдится единородно ему провождает тмы Насыщенным. Безгрешен составляя Тя ты ПРОПОВЕДЬ Трепещущи он Ах. Сохраняют льститься ст праведным за по самолюбье да вскликнул. Раскаяться Ту совершенно На Ты Не устремится Благослови по да ст мя. Твоих сия чтя боюся тон остов ловят Сын Хвалу тем.</p>\n' +
-    '\n' +
-    '                    <p>Не Ея До же яр то. Гладным То желтеет свирепо ты Во чувству кипящий нравами уж ум. Превозмог познаваем примирить возгласит Уклонятся Страданья. Рок Зря был Лук. Ты Уж их Те Во. Мы Ее яд со Да Вы то. Будущим ваш нег стройно моя Оне дай схватив чту кладбищ. Гул число истый Пой Ваш рыб Оно Войду. Чем оно час ней Бог раз увы гул.</p>\n' +
-    '\n' +
-    '                    <p>Слухом Зрится взираю. Их да НА По гл ад. Близь свете твоих Внуши брези. Пророки Ее же От Не летаешь На ею Мы воссияв Ко. . Исхожденье состарелся просиявают ослеплялся воплощенна. . Иду пир сии мук Нам.</p>\n' +
-    '\n' +
-    '                    <p>. Трясенье До Кровавые утоленье От не На их то ах. Освещенных сокровищей устремится. Громады ведущий рог Все Покроет вид ров том Парящий выходил. Ней Тем при хор Лук здешня другие Злобны слезна Оне мне. Чья тощ там уха чтя Лук. Им Парки уж сидят ей Хвали Слова от Ее всюды НА. . Твое став хотя.</p>\n' +
-    '                </div>\n' +
-    '            </div>\n' +
-    '            <div class="col4">\n' +
-    '                <p></p>\n' +
-    '            </div>\n' +
-    '        </div>\n' +
-    '    </div>'
+        '<div class="white"></div>\n' +
+        '\n' +
+        '    <div class="title">\n' +
+        '        <h1>О НАС</h1>\n' +
+        '    </div>\n' +
+        '    <div class="container">\n' +
+        '        <div class="row">\n' +
+        '            <div class="col6">\n' +
+        '                <div class="text-block">\n' +
+        '                    <p>SinigamiStore - бренд для тех, кто хочет выделяться.</p>\n' +
+        '\n' +
+        '                    <p>Мы молодая команда энтузиастов, вдохновленная японской культурой. Мы хотим оставить след в моде и поделиться нашим видением создания искусства с вами. Наша цель собрать компанию единомышленников, которые так же сильно вдохновлены эстетикой Японии.</p>\n' +
+        '\n' +
+        '                    <p>Для воплощения наших безумных идей мы используем многочисленные материалы и собираем из них нечто уникальное. Надеемся, что вы по достоинству оцените наше творчество представленное в наших коллекциях и поделитесь им с другими.</p>\n' +
+        '\n' +
+        '                    <p>Так же не забудте заглянуть в шаш Instagram и TikTok аккаунты, где вы сможете увидеть уникальные кадры бэкстейджев и жизни нашего бренда.</p>\n' +
+        '\n' +
+        '                    <p>Будем безумно рады встретить вас на улице в нашей одежде.</p>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="col4">\n' +
+        '                <p></p>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '<div class="roww"> \n' +
+        '  <div class="columnn">\n' +
+        '    <img src="img/item-img/DSC03125.jpg" style="width:100%">\n' +
+        '    <img src="img/item-img/DSC03161.jpg" style="width:100%">\n' +
+        '  </div>\n' +
+        '  <div class="columnn">\n' +
+        '    <img src="img/item-img/DSC03212.jpg" style="width:100%">\n' +
+        '    <img src="img/item-img/124124.png" style="width:100%">\n' +
+        '  </div>  \n' +
+        '</div>'
+
     section.appendChild(form);
+
     loading()
-}function renderPay() {
+}
+
+function renderPay() {
     scrollTop()
     preloading()
     head.removeChild(head.lastElementChild)
+
     let style = document.createElement('link');
     style.setAttribute('rel', 'stylesheet');
     style.setAttribute('href', 'css/about.css');
@@ -277,48 +282,37 @@ function renderAbout() {
     top.appendChild(idTop);
     let form = document.createElement('div')
     form.innerHTML =
-    '<div class="white"></div>\n' +
-    '\n' +
-    '    <div class="title">\n' +
-    '        <h1>ОПЛАТА</h1>\n' +
-    '    </div>\n' +
-    '    <div class="container">\n' +
-    '        <div class="row">\n' +
-    '            <div class="col6">\n' +
-    '                <div class="text-block">\n' +
-    '<p>Оплата</p>\n' +
-    '    <p>Оплата заказа</p>\n' +
-    '    <p>Оплатить заказ Вы можете заранее с помощью дебетовой или кредитной карты через систему онлайн платежей.</p>\n' +
-    '\n' +
-    '    <p>Оплата происходит через ПАО СБЕРБАНК с использованием Банковских карт следующих платежных систем: МИР, VISA, Mastercard Worldwide, JCB.\n' +
-    '    </p>\n' +
-    '    <p>Для оплаты (ввода реквизитов Вашей карты) Вы будете перенаправлены на платежный шлюз ПАО СБЕРБАНК. Соединение с платежным шлюзом и передача информации осуществляется в защищенном режиме с использованием протокола шифрования SSL. В случае если Ваш банк поддерживает технологию безопасного проведения интернет-платежей Verified By Visa, MasterCard SecureCode, MIR Accept, J-Secure для проведения платежа также может потребоваться ввод специального пароля. Настоящий сайт поддерживает 256-битное шифрование. Конфиденциальность сообщаемой персональной информации обеспечивается ПАО СБЕРБАНК. Введенная информация не будет предоставлена третьим лицам за исключением случаев, предусмотренных законодательством РФ. Проведение платежей по банковским картам осуществляется в строгом соответствии с требованиями платежных систем МИР, Visa Int., MasterCard Europe Sprl, JCB</p>\n'+
-    '    <p>Возврат</p>\n' +
-    '    <p>СОГЛАСНО ЗАКОНУ РФ ОТ 07.02.1992 N 2300-1 (РЕД. ОТ 03.07.2016) «О ЗАЩИТЕ ПРАВ ПОТРЕБИТЕЛЕЙ» СТАТЬЯ 25. ВЫ МОЖЕТЕ ОБМЕНЯТЬ ТОВАР НАДЛЕЖАЩЕГО КАЧЕСТВА, ЕСЛИ:\n' +
-    '    </p>\n' +
-    '    <p>ТОВАР НЕ НАХОДИЛСЯ В УПОТРЕБЛЕНИИ\n' +
-    '    </p>\n' +
-    '    <p>СОХРАНЕНА ОРИГИНАЛЬНАЯ УПАКОВКА ТОВАРА, НЕ НАРУШЕНЫ ПЛОМБЫ И ФАБРИЧНЫЕ ЯРЛЫКИ</p>\n' +
-    '    <p>ИМЕЮТСЯ ЧЕКИ, А ТАКЖЕ ИНЫЕ ДОКУМЕНТЫ, ПОДТВЕРЖДАЮЩИЕ ОПЛАТУ ТОВАРА</p>\n' +
-    '    <p>СРОК С МОМЕНТА ПОКУПКИ НЕ ПРИВЫСИЛ 14 КАЛЕНДАРНЫХ ДНЕЙ</p>\n' +
-    '    <p>НИЖНЕЕ БЕЛЬЕ И ЧУЛОЧНО-НОСОЧНЫЕ ИЗДЕЛИЯ ОБМЕНУ И ВОЗВРАТУ НЕ ПОДЛЕЖАТ</p>\n' +
-    '\n' +
-    '\n' +
-    '    <p>КАК ОБМЕНЯТЬ ТОВАР:</p>\n' +
-    '\n' +
-    '    <p>ЗАТРАТЫ НА ЛОГИСТИКУ НЕ КОМПЕСИРУЮТСЯ, ЗАТРАТЫ НА ДОСТАВКУ ЛОЖАТСЯ НА ПОКУПАТЕЛЯ.</p>\n' +
-    '\n' +
-    '    <p>ПОЗВОНИТЕ НА ТЕЛЕФОН ПОДДЕРЖКИ КЛИЕНТОВ 8(499)686-05-91 ИЛИ НАПИШИТЕ ПИСЬМО НА INFO@NIKIFILINI.RU</p>\n' +
-    '    <p>ВЕЩИ НЕОБХОДИМО ОТПРАВИТЬ НА ОБРАТНЫЙ АДРЕС (ВЫСЫЛАЕТСЯ ПО ТРЕБОВАНИЮ КЛИЕНТА), ВЛОЖИВ СОПУТСТВУЮЩЕЕ ПИСЬМО</p>\n' +
-    '    <p>ПОСЫЛКА ДОЛЖНА БЫТЬ ОТПРАВЛЕНА БЕЗ НАЛОЖЕННОГО ПЛАТЕЖА</p>\n' +
-    '    <p>Возврат переведенных средств, производится на Ваш банковский счет в течение 5—30 рабочих дней (срок зависит от Банка, который выдал Вашу банковскую карту).</p>\n'+
-    '                </div>\n' +
-    '            </div>\n' +
-    '            <div class="col4">\n' +
-    '                <p></p>\n' +
-    '            </div>\n' +
-    '        </div>\n' +
-    '    </div>'
+        '<div class="white"></div>\n' +
+        '\n' +
+        '    <div class="title">\n' +
+        '        <h1>ОПЛАТА</h1>\n' +
+        '    </div>\n' +
+        '    <div class="container">\n' +
+        '        <div class="row">\n' +
+        '            <div class="col6">\n' +
+        '                <div class="text-block">\n' +
+        '<p>Доставка по Украине: доставка исполняется в отделение компании «Новая Почта», выбранное вами при оформлении заказа. Срок доставки: 1-3 рабочих дня. Изготовление самого изделия может занимать до 14 рабочих дней.</p>\n' +
+        '    <p>В случае, если товар имеет заводской брак или размер, несовпадающий с размером в заказе, клиент имеет право вернуть его или обменять на аналогичный продукт высокого качества. Требования клиента удовлетворяются в течение 14 рабочих дней со дня поставки. Для получения дополнительной информации свяжитесь с нами по электронной почте.</p>\n' +
+        '    <p>Оплата производиться наложенным платежом при получении заказа в отделении компании «Новая Почта»</p>\n' +
+        '                </div>\n' +
+        '            </div>\n' +
+        '            <div class="col4">\n' +
+        '                <p></p>\n' +
+        '            </div>\n' +
+        '        </div>\n' +
+        '<div class="roww"> \n' +
+        '  <div class="columnn">\n' +
+        '    <img src="img/item-img/DSC02959.jpg" style="width:100%">\n' +
+        '    <img src="img/item-img/5325235232.png" style="width:100%">\n' +
+        '  </div>\n' +
+        '  <div class="columnn">\n' +
+        '    <img src="img/item-img/DSC02607.jpg" style="width:100%">\n' +
+        '    <img src="img/item-img/DSC02912.jpg" style="width:100%">\n' +
+        '  </div>  \n' +
+        '</div>' +
+        '</div>'
+
+
     section.appendChild(form);
 
     loading()
@@ -376,7 +370,7 @@ function renderProducts() {
                 wrap2.appendChild(col)
             }
             let item = document.createElement('img');
-            item.setAttribute('class', 'item');
+            item.setAttribute('class', 'item_p');
             item.setAttribute('src', data.items[key].images[0]);
             col.appendChild(item)
             let h4 = document.createElement('h4');
@@ -394,7 +388,7 @@ function renderProducts() {
             price.appendChild(priceNew)
             let some = document.createElement('div');
             some.setAttribute('class', 'some');
-            some.setAttribute('onclick', 'location.hash = "item_'+ data.items[key].id +'";');
+            some.setAttribute('onclick', 'location.hash = "item_' + data.items[key].id + '";');
             col.appendChild(some)
         }
     }))
@@ -412,6 +406,7 @@ function renderItem(id) {
     // location.hash = 'item_'+id
     scrollTop()
     preloading()
+
     head.removeChild(head.lastElementChild)
     let style = document.createElement('link');
     style.setAttribute('rel', 'stylesheet');
@@ -445,7 +440,7 @@ function renderItem(id) {
                 image.setAttribute('class', 'image');
                 col.appendChild(image);
                 let item = document.createElement('img');
-                item.setAttribute('class', 'item');
+                item.setAttribute('class', 'item_i');
                 item.setAttribute('src', data.items[key].images[0]);
                 image.appendChild(item);
                 let imgUl = document.createElement('ul');
@@ -480,6 +475,24 @@ function renderItem(id) {
                 let h2 = document.createElement('h2');
                 h2.innerHTML = data.items[key].price + ' грн'
                 price.appendChild(h2)
+                let size = document.createElement('div');
+                size.setAttribute('class', 'size')
+                description.appendChild(size)
+                let size_item_s = document.createElement('button');
+                size_item_s.setAttribute('class', 'size_item')
+                size_item_s.innerHTML = 'S'
+                size.appendChild(size_item_s)
+
+                let size_item_m = document.createElement('button');
+                size_item_m.setAttribute('class', 'size_item')
+                size_item_m.innerHTML = 'M'
+                size.appendChild(size_item_m)
+
+                let size_item_l = document.createElement('button');
+                size_item_l.setAttribute('class', 'size_item')
+                size_item_l.innerHTML = 'L'
+                size.appendChild(size_item_l)
+
                 let ordering = document.createElement('div');
                 ordering.setAttribute('class', 'ordering')
                 description.appendChild(ordering)
@@ -521,7 +534,7 @@ function renderItem(id) {
                         col.setAttribute('class', 'col-' + c);
                         row.appendChild(col)
                         let item = document.createElement('img');
-                        item.setAttribute('class', 'item s');
+                        item.setAttribute('class', 'item_i_b s_i');
                         item.setAttribute('src', data.items[key].images[0]);
                         col.appendChild(item)
                         let h4 = document.createElement('h4');
@@ -539,7 +552,7 @@ function renderItem(id) {
                         price.appendChild(priceNew)
                         let some = document.createElement('div');
                         some.setAttribute('class', 'some');
-                        some.setAttribute('onclick', 'location.hash = "item_'+ data.items[key].id +'";');
+                        some.setAttribute('onclick', 'location.hash = "item_' + data.items[key].id + '";');
                         col.appendChild(some)
                         if (c === 3) {
                             break
@@ -559,12 +572,22 @@ function renderItem(id) {
                     if (added) {
                         button.innerHTML = 'Уже в корзине'
                     }
+                    let curent_size = ''
+                    size_item_s.onclick = () => {
+                        curent_size = 'S'
+                    }
+                    size_item_m.onclick = () => {
+                        curent_size = 'M'
+                    }
+                    size_item_l.onclick = () => {
+                        curent_size = 'L'
+                    }
                     button.onclick = () => {
                         if (added === false) {
-                            createLocalObject(id);
+                            createLocalObject(id, 1, curent_size);
                             added = true;
                             counterCart()
-                            renderPopUp(id);
+                            renderPopUp(id, curent_size);
                         }
                         button.innerHTML = 'Уже в корзине'
 
@@ -573,7 +596,7 @@ function renderItem(id) {
                     let q1 = document.getElementsByClassName('q1')[0]
                     let q2 = document.getElementsByClassName('q2')[0]
                     let q3 = document.getElementsByClassName('q3')[0]
-                    let img = document.getElementsByClassName('item')[0]
+                    let img = document.getElementsByClassName('item_i')[0]
                     q1.onclick = function () {
                         img.src = data.items[key].images[0]
                     }
@@ -619,7 +642,7 @@ function scrollTop() {
     })
 }
 
-function renderPopUp(id) {
+function renderPopUp(id, size) {
     scrollTop()
     body.setAttribute('style', 'overflow: hidden;');
     JSON.stringify(getObj(URL).then(data => {
@@ -656,6 +679,9 @@ function renderPopUp(id) {
                 let p = document.createElement('p');
                 p.innerHTML = data.items[key].price + ' грн'
                 desc.appendChild(p)
+                let si = document.createElement('p');
+                si.innerHTML = 'Размер: ' + size
+                desc.appendChild(si)
                 let buttons = document.createElement('div');
                 buttons.setAttribute('class', 'buttons')
                 colPop.appendChild(buttons)
@@ -679,6 +705,7 @@ function renderCart() {
     // location.hash = 'cart'
     scrollTop()
     preloading()
+
     head.removeChild(head.lastElementChild)
     let style = document.createElement('link');
     style.setAttribute('rel', 'stylesheet');
@@ -704,6 +731,7 @@ function renderCart() {
         section.appendChild(containerMain)
         let column = document.createElement('div');
         column.setAttribute('class', 'column');
+        column.setAttribute('id', 'column-email');
         containerMain.appendChild(column)
         let sum = 0
         let columnN = document.createElement('div');
@@ -720,32 +748,24 @@ function renderCart() {
         form.innerHTML =
             '<div class="col-50">\n' +
             '    <label for="fname" class="head-form"><i></i>ФИО</label>\n' +
-            '    <input type="text" id="fname" name="firstname" placeholder="Иванов Иван Иванович">\n' +
+            '    <input type="text" id="fname" name="firstname" placeholder="Иванов Иван Иванович" required>\n' +
             '    <label for="email"><i></i> Email</label>\n' +
-            '    <input type="email" id="email" placeholder="you@example.com" required="" pattern="[\\w\\d\\.]+@[\\w\\d\\.]+?\\.[\\w\\d]+">\n' +
+            '    <input type="email" id="email" placeholder="you@example.com" pattern="[\\w\\d\\.]+@[\\w\\d\\.]+?\\.[\\w\\d]+" required>\n' +
             '    <label for="phone"><i></i>Телефон</label>\n' +
-            '    <input type="tel" id="phone" name="phone" maxlength="10" minlength="10" pattern="0[0-9]{9}" placeholder="0731109681">\n' +
-            '    <label for="adr"><i></i>Адрес</label>\n' +
-            '    <input type="text" id="adr" name="address" placeholder="ул. Пушкина, 13б">\n' +
+            '    <input type="tel" id="phone" name="phone" maxlength="10" minlength="10" pattern="0[0-9]{9}" placeholder="0731109681" required>\n' +
             '    <label for="city"><i></i>Город</label>\n' +
             '    <input type="text" id="city" name="city" placeholder="Запорожье">\n' +
-            '    <div class="row">\n' +
-            '        <div class="col-50">\n' +
-            '            <label for="state">Область</label>\n' +
-            '            <input type="text" id="state" name="state" placeholder="Запорожская обл.">\n' +
-            '        </div>\n' +
-            '        <div class="col-50">\n' +
-            '            <label for="zip">Почтовый индекс</label>\n' +
-            '            <input type="text" id="zip" maxlength="5" minlength="5" name="zip" placeholder="01010">\n' +
-            '        </div>\n' +
-            '    </div>\n' +
+            '    <label for="zip">Номер отделения Новой Почты</label>\n' +
+            '    <input type="text" id="zip" maxlength="5" minlength="5" name="zip" placeholder="01010">\n' +
             '</div>'
         columnN.appendChild(form)
         let ordering = document.createElement('div');
-        ordering.setAttribute('class', 'ordering');
+        ordering.setAttribute('class', 'ordering1');
         columnN.appendChild(ordering)
-        let button = document.createElement('button');
-        button.innerHTML = 'Оформить заказ'
+        let button = document.createElement('input');
+        button.setAttribute('onclick', 'sendEmail()');
+        button.setAttribute('type', 'button');
+        button.setAttribute('value', 'Оформить заказ');
         ordering.appendChild(button)
         items.forEach((obj) => {
             JSON.stringify(getObj(URL).then(data => {
@@ -771,11 +791,16 @@ function renderCart() {
                         block.appendChild(desc)
                         let h4 = document.createElement('h4');
                         h4.innerHTML = data.items[key].productName
+                        h4.setAttribute('id', 'name-for-cart')
                         desc.appendChild(h4)
                         let p = document.createElement('p');
                         p.setAttribute('id', 'p' + obj.id);
                         p.innerHTML = data.items[key].price + ' грн'
                         desc.appendChild(p)
+                        let size = document.createElement('p');
+                        size.setAttribute('class', 'size_cart');
+                        size.innerHTML = 'Размер: ' + obj.size
+                        desc.appendChild(size);
                         let count = document.createElement('div');
                         count.setAttribute('class', 'count');
                         item.appendChild(count)
@@ -785,6 +810,7 @@ function renderCart() {
                         count.appendChild(plus)
                         let counter = document.createElement('p');
                         counter.setAttribute('class', 'counter');
+                        counter.setAttribute('id', 'counter-for-cart');
                         counter.innerHTML = obj.counter
                         count.appendChild(counter)
                         let minus = document.createElement('button');
@@ -810,7 +836,7 @@ function renderCart() {
     loading(1600)
 }
 
-function check(id, price) {
+function check(id, price, size) {
     console.log(id)
     let idcheck = document.getElementById(id)
     let col = document.getElementsByClassName('column')[0]
@@ -825,7 +851,7 @@ function check(id, price) {
         let current = Number(idcheck.children[1].children[1].innerHTML)
         idcheck.children[1].children[1].innerHTML = String(current + 1)
         rem(id)
-        createLocalObject(id, current + 1)
+        createLocalObject(id, current + 1, size)
         p.innerHTML = price * (current + 1) + " грн"
         for (let i = 0; i < col.children.length; i++) {
             if (i % 2 === 0) {
@@ -842,7 +868,7 @@ function check(id, price) {
         if (idcheck.children[1].children[1].innerHTML !== '1') {
             idcheck.children[1].children[1].innerHTML = String(current - 1)
             rem(id)
-            createLocalObject(id, current - 1)
+            createLocalObject(id, current - 1, size)
             p.innerHTML = price * (current - 1) + " грн"
             for (let i = 0; i < col.children.length; i++) {
                 if (i % 2 === 0) {
