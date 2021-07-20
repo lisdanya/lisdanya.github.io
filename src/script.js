@@ -512,7 +512,7 @@ function renderItem(id) {
                 textDescription.appendChild(p)
                 let ul = document.createElement('ul');
                 textDescription.appendChild(ul)
-                for (let i = 0; i < 4; i++) {
+                for (let i = 0; i < 3; i++) {
                     let li = document.createElement('li');
                     li.innerHTML = data.items[key].materials[i]
                     ul.appendChild(li)
