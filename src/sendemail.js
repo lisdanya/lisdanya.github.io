@@ -66,7 +66,6 @@ function sendEmail() {
             "  </tr>\n" +
             "</table> </body>",
     }).then(
-        console.log(sizeForCart),
         message => alert('Спасибо за Ваш заказ, наш оператор скоро с Вами свяжется.')
     );
 
