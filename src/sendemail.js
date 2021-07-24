@@ -66,7 +66,36 @@ function sendEmail() {
             "  </tr>\n" +
             "</table> </body>",
     }).then(
-        message => alert('Спасибо за Ваш заказ, наш оператор скоро с Вами свяжется.')
+        localStorage.clear(),
+        localStorage.setItem(name, '[]'),
+        renderCartPop()
     );
 
+}
+function renderCartPop(){
+    let PopUpCartBlock = document.createElement('div');
+    PopUpCartBlock.setAttribute('class', 'CartPop');
+    PopUpCartBlock.setAttribute('id', 'cartPop')
+    PopUpCartBlock.innerHTML = '<div class="smoke">' +
+        '</div>' +
+        '<div class="popUp">\n' +
+        '    <div class="col-pop">\n' +
+        '        <div id="1" class="block">\n' +
+        '            <div class="message" style="text-align: center; margin-left: 10px; margin-top: 5px">\n' +
+        '            <H1 class="message-text" style="font-size: 26px">Спасибо за ваш заказ!</H1>\n' +
+        '            <p class="message-text" style="font-size: 15px">Наш оператор скоро с Вами свяжется.</p>\n' +
+        '            <div class="ordering2">' +
+        '            <a href="#main">' +
+        '               <input type="button" value="OK" onclick="hideCartPop()">' +
+        '            </a>' +
+        '           </>\n' +
+        '        </div>\n' +
+        '    </div>\n' +
+        '</div>'
+    body.appendChild(PopUpCartBlock)
+}
+function hideCartPop() {
+    let hidePop = document.getElementById("cartPop");
+    window.location.hash = '#main'
+    location.reload();
 }

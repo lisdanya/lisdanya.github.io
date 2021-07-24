@@ -6,6 +6,8 @@ const footer = document.getElementsByTagName('footer')[0]
 const head = document.getElementsByTagName('head')[0]
 const load = document.getElementsByClassName('all')[0]
 const basket_counter = document.getElementsByClassName('bask-cou')[0]
+let toTop = document.getElementById('idTop')
+let headerrrr = document.getElementById('top')
 let local = JSON.parse(localStorage.getItem(name))
 
 
@@ -16,6 +18,12 @@ window.onload = () => {
     counterCart()
     // renderIndex()
     routing()
+}
+toTop.onclick = function() {
+    headerrrr.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+    })
 }
 
 window.onhashchange = () => {
@@ -402,6 +410,7 @@ function counterCart() {
     basket_counter.innerHTML = local.length;
 }
 
+
 function renderItem(id) {
     // location.hash = 'item_'+id
     scrollTop()
@@ -478,6 +487,7 @@ function renderItem(id) {
                 let size = document.createElement('div');
                 size.setAttribute('class', 'size')
                 description.appendChild(size)
+
                 let size_item_s = document.createElement('button');
                 size_item_s.setAttribute('class', 'size_item')
                 size_item_s.innerHTML = 'S'
@@ -606,13 +616,32 @@ function renderItem(id) {
                     q3.onclick = function () {
                         img.src = data.items[key].images[5]
                     }
+
+
+                    size_item_s.onclick = function () {
+                        size_item_s.style = 'background: #ededed;\n' +
+                                            'color: black;'
+                        size_item_m.style = ''
+                        size_item_l.style = ''
+                    }
+                    size_item_m.onclick = function () {
+                        size_item_s.style = ''
+                        size_item_m.style = 'background: #ededed;\n' +
+                                            'color: black;'
+                        size_item_l.style = ''
+                    }
+                    size_item_l.onclick = function () {
+                        size_item_s.style = ''
+                        size_item_m.style = ''
+                        size_item_l.style = 'background: #ededed;\n' +
+                                            'color: black;'
+                    }
                 }, 500);
             }
         }
     }))
     loading(800)
 }
-
 function preloading() {
     load.setAttribute('style',
         '\tposition: absolute;\n' +
@@ -640,6 +669,9 @@ function scrollTop() {
         behavior: 'smooth',
         block: 'start'
     })
+}
+function renderPP(){
+    let content = ""
 }
 
 function renderPopUp(id, size) {

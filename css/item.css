@@ -286,7 +286,7 @@ header a {
     border: none;
 }
 
-.size_item:focus {
+.size_item_focus{
     background: #ededed;
     color: black;
 }
