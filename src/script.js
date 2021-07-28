@@ -19,12 +19,7 @@ window.onload = () => {
     // renderIndex()
     routing()
 }
-toTop.onclick = function() {
-    headerrrr.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-    })
-}
+
 
 window.onhashchange = () => {
     counterCart()
