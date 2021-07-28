@@ -6,8 +6,6 @@ const footer = document.getElementsByTagName('footer')[0]
 const head = document.getElementsByTagName('head')[0]
 const load = document.getElementsByClassName('all')[0]
 const basket_counter = document.getElementsByClassName('bask-cou')[0]
-let toTop = document.getElementById('idTop')
-let headerrrr = document.getElementById('top')
 let local = JSON.parse(localStorage.getItem(name))
 
 
