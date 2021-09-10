@@ -56,6 +56,6 @@
       "info": "Мы создали толстовку \"[ ]\" для настоящих геймеров, которые не представляют своей жизни без азарта, без стратегического мышления, без игр. Если вы тоже никогда не проигрываете, то эта толстовка специально для вас.",
       "materials": ["70% Коттон","30% Полиэстер","Печати: Прямая | Флекс | Сублимация"],
       "price": "1999",
-      "images": ["img/item-img/NoGameFront.png","img/item-img/NoGameFrontSmall.png","img/item-img/NoGameFrontSmall.png","img/item-img/NoGameFrontSmall.png","img/item-img/NoGameFront.png","img/item-img/NoGameFront.png"],
+      "images": ["img/item-img/[]Back_.png","img/item-img/[]Back_Small.png","img/item-img/[]Front_Small.png","img/item-img/[]Back2_Small.png","img/item-img/[]Front.png","img/item-img/[]Back2.png"],
       "sizeGrid": "img/image_2020-11-06_21-28-06.png"
     }]}
